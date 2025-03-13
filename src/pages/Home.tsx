@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "../components/Button";
+import ProductCard from "../components/ProductCard";
 
 function Home() {
   return (
@@ -12,10 +14,7 @@ function Home() {
             Discover Our Newest Collection Today.
           </p>
           <div>
-            <button className="bg-black rounded-sm text-white py-3 px-6 flex">
-              View Collection
-              <img src="/arrow.svg" alt="arrow right" className="ml-3" />
-            </button>
+            <Button children={"View Collection"} arrow={true} />
           </div>
         </div>
         <div>
@@ -64,6 +63,51 @@ function Home() {
           <p className="text-black500 text-sm w-70">
             Your security is our priority. Your payments are secure with us.
           </p>
+        </div>
+      </section>
+
+      <section>
+        <div className="flex flex-col items-center">
+          <p className="text-black300 font-medium text-xs mb-2">SHOP NOW</p>
+          <h2 className="text-black900 font-bold text-2xl">Best Selling</h2>
+        </div>
+        <div className="grid grid-cols-4 gap-5 mt-20 mb-42 mx-43 h-108">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+      </section>
+
+      <section className="flex justify-between mb-38 border border-t-white100 border-b-white100 border-r-transparent border-l-transparent bg-gradient-to-r from-white100 to-white">
+        <div className="mt-13 ml-43">
+          <h2 className="text-black900 text-2xl font-bold mb-6">
+            Browse Our Fashion Paradise!
+          </h2>
+          <p className="text-sm text-black500 mb-8">
+            Step into a world of style and explore our diverse collection of
+            clothing categories.
+          </p>
+          <div>
+            <Button children={"Start Browsing"} arrow={true} />
+          </div>
+        </div>
+        <div className="mr-53">
+          <img src="/Category Image.svg" alt="Category Image" />
+        </div>
+      </section>
+
+      <section>
+        <div className="flex justify-center">
+          <h2 className="text-sm font-medium text-black800 px-4 py-1 border border-white200 rounded-full">
+            On Offer
+          </h2>
+        </div>
+        <div className="grid grid-cols-4 gap-5 mt-12 mb-48 mx-43 h-108">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
         </div>
       </section>
     </main>
