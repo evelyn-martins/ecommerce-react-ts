@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <header>
+    <header className="border border-transparent border-b-white100">
       <div className="flex items-center justify-between mx-40 px-3 py-5">
         <div className="flex items-center">
           <div className="flex items-center">

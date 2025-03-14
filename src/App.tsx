@@ -2,7 +2,8 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Promotion from "./components/Promotion"
 //import Home from "./pages/Home"
-import Listing from "./pages/Listing"
+//import Listing from "./pages/Listing"
+import Product from "./pages/Product"
 
 function App() {
   
@@ -10,7 +11,7 @@ function App() {
     <>
       <Promotion/>
       <Header />
-      <Listing/>
+      <Product inStock={true} />
       <Footer />
     </>
   )

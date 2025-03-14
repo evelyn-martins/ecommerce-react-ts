@@ -7,7 +7,9 @@ import Breadcrumb from "../components/Breadcrumb";
 function Listing() {
   return (
     <>
-      <Breadcrumb children="Search"/>
+      <div className="bg-white100">
+        <Breadcrumb children="Search" />
+      </div>
       <main className="flex mb-32">
         <aside className="border border-black100 rounded-md pl-4 pt-6 pr-3 pb-8 w-60 mt-8 ml-43 h-fit">
           <div>

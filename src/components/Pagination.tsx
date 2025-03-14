@@ -10,7 +10,7 @@ function Pagination() {
         <p className='text-xs font-medium text-black900'>1</p>
       </div>
       <div className='cursor-pointer'>
-        <img src='/chevron right.svg' alt='Chevron right' className='px-1.5 py-1.5'/>
+        <img src='/chevron right2.svg' alt='Chevron right' className='px-1.5 py-1.5'/>
       </div>
     </div>
   )

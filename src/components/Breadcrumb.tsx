@@ -1,13 +1,9 @@
 import React from "react";
 
-interface BreadcrumbProps {
-    children: string;
-}
-
-function Breadcrumb({children}: BreadcrumbProps) {
+function Breadcrumb({children}: {children: string}) {
   return (
     <nav>
-      <ul className="flex gap-1 h-16 items-center bg-white100 px-40.5">
+      <ul className="flex gap-1 h-16 items-center px-40.5">
         <li className="text-sm font-medium text-black500 cursor-pointer">Ecommerce</li>
         <li>
           <img
