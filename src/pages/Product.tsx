@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 import ProductColors from "../components/ProductColors";
 import ProductSizes from "../components/ProductSizes";
 import ProductQuantity from "../components/ProductQuantity";
 import ButtonPrimary from "../components/ButtonPrimary";
 import ProductCard from "../components/ProductCard";
+import { useLocation } from "react-router-dom";
+import { IProduct } from "../interfaces/IProduct";
 
-function Product({ inStock }: { inStock: boolean }) {
-  const products = ["/Product.png", "/Product2.webp"];
+function Product() {
+  const location = useLocation();
+  const {product} = location.state as { product: IProduct };
   const [currentImg, setCurrentImg] = useState<number>(0);
+  const {image, name, price, inStock} = product;
+  const [similarProducts, setSimilarProducts] = useState<IProduct[]>([])
 
   const handlePreviousImg = () => {
     setCurrentImg((prevImg) => {
       if (prevImg === 0) {
-        return products.length - 1;
+        return product.image.length - 1;
       } else {
         return prevImg - 1;
       }
@@ -22,13 +27,29 @@ function Product({ inStock }: { inStock: boolean }) {
 
   const handleNextImg = () => {
     setCurrentImg((prevImg) => {
-      if (prevImg === products.length - 1) {
+      if (prevImg === product.image.length - 1) {
         return 0;
       } else {
         return prevImg + 1;
       }
     });
   };
+
+  useEffect(() => {
+      fetch("http://localhost:3000/products")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Falha na requisição");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          const productsFilter = data.filter((products: IProduct) => products.category === product.category)
+          setSimilarProducts(productsFilter.slice(0, 4));
+        })
+        .catch(console.error);
+    }, []);
 
   return (
     <>
@@ -44,9 +65,9 @@ function Product({ inStock }: { inStock: boolean }) {
               />
               <div>
                 <img
-                  src={products[currentImg]}
+                  src={image[currentImg]}
                   alt="chevron left"
-                  className="w-72 h-101 object-cover"
+                  className="w-72 h-101 object-contain"
                 />
               </div>
               <img
@@ -57,7 +78,7 @@ function Product({ inStock }: { inStock: boolean }) {
               />
             </div>
             <div className="flex items-end gap-2 justify-center mb-8">
-              {products.map((product, index) => (
+              {product.image.map((product, index) => (
                 <div
                   key={index}
                   className={`w-2 h-2 bg-black200 rounded-full ${
@@ -70,7 +91,7 @@ function Product({ inStock }: { inStock: boolean }) {
           <div className="flex-1/2 pl-30">
             <div className="flex justify-between items-center mt-3">
               <h2 className="text-2xl font-bold text-black900">
-                Raw Black T-Shirt Lineup
+                {name}
               </h2>
               <img src="/share.svg" alt="Share" className="cursor-pointer" />
             </div>
@@ -87,10 +108,10 @@ function Product({ inStock }: { inStock: boolean }) {
                 </p>
               </div>
               <div className="mt-6">
-                <p className="text-black900 font-semibold text-lg">$75.00</p>
+                <p className="text-black900 font-semibold text-lg">${price}</p>
               </div>
             </div>
-            {inStock && (
+            {product.inStock && (
               <div>
                 <div className="mt-8 mb-6.5">
                   <p className="text-xs font-medium text-black500 mb-2.5">
@@ -152,10 +173,9 @@ function Product({ inStock }: { inStock: boolean }) {
             </p>
           </div>
           <div className="grid grid-cols-4">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {similarProducts.map((product) => (
+              <ProductCard product={product}/>
+            ))}
           </div>
         </section>
       </main>

@@ -9,7 +9,8 @@
       "image": ["/Product.png", "/Product2.webp"],
       "inStock": true,
       "colors": ["yellow", "blue", "green"],
-      "sizes": ["S", "M", "X", "XL", "XXL"]
+      "sizes": ["S", "M", "X", "XL", "XXL"],
+      "offer": false
     },
     {
       "id": "0fp9nany",
@@ -17,10 +18,11 @@
       "price": 25,
       "category": "hat",
       "highlight": true,
-      "image": ["/hat.webp", "/hat2.webp"],
+      "image": ["/hat.png", "/hat2.webp"],
       "inStock": true,
       "colors": ["yellow", "blue"],
-      "sizes": ["One Size"]
+      "sizes": ["One Size"],
+      "offer": false
     },
     {
       "id": "ugj4xk9m",
@@ -28,10 +30,11 @@
       "price": 100,
       "category": "shoe",
       "highlight": true,
-      "image": ["/Color Sneakers.webp", "/Color Sneakers2.webp", "/Color Sneakers3.webp"],
+      "image": ["/Color Sneakers.png", "/Color Sneakers2.png" , "/Color Sneakers3.png"],
       "inStock": true,
       "colors": ["yellow", "blue", "green"],
-      "sizes": ["6", "6.5", "7", "8", "9"]
+      "sizes": ["6", "6.5", "7", "8", "9"],
+      "offer": true
     },
     {
       "id": "5d86",
@@ -39,76 +42,83 @@
       "price": 30,
       "category": "hat",
       "highlight": true,
-      "image": ["/hat3.webp", "/hat4.webp"],
+      "image": ["/hat3.png", "/hat4.png"],
       "inStock": true,
       "colors": ["yellow", "green"],
-      "sizes": ["One Size"]
+      "sizes": ["One Size"],
+      "offer": false
     },
     {
       "id": "3f4f",
-      "name": "Notocactus ottonis",
-      "subtitle": "Cacto compacto e encantador.",
-      "price": "25",
-      "discount": "0",
-      "description": "Conhecido por seu formato globular e espinhos curtos e delicados, essa planta ganha destaque com suas flores grandes e vibrantes em tons de amarelo, que adicionam cor e vida a qualquer espaço.",
-      "category": "indor",
-      "highlight": true,
-      "imageURL": "https://cdn.leroymerlin.com.br/contents/tipos_de_cactos_aecf_original.jpg"
+      "name": "Nike Sneakers",
+      "price": 120,
+      "category": "shoe",
+      "highlight": false,
+      "image": ["/shoe.png"],
+      "inStock": true,
+      "colors": ["blue", "green"],
+      "sizes": ["6", "7", "8", "9", "9.5"],
+      "offer": true
     },
     {
       "id": "af08",
-      "name": "Pilosocereus gounellei",
-      "subtitle": "Conhecido como xiquexique.",
-      "price": "85",
-      "discount": "15",
-      "description": "Conhecido popularmente como xiquexique, está presente no Nordeste, na caatinga brasileira. O seu caule é espinhoso e rico em água, e ele se desenvolve em touceiras. Sua formação pode ser arbustiva ou arbórea pode atingir 4 metros de altura.",
-      "category": "outdoor",
-      "highlight": true,
-      "imageURL": "https://cdn.leroymerlin.com.br/contents/tipos_de_cactos_37f7_original.jpg"
+      "name": "Nike Cap",
+      "price": 40,
+      "category": "hat",
+      "highlight": false,
+      "image": ["/hat5.png"],
+      "inStock": false,
+      "colors": ["yellow", "blue", "green"],
+      "sizes": ["One Size"],
+      "offer": true
     },
     {
       "id": "c00b",
-      "name": "Myrtillocactus geometrizans",
-      "subtitle": "Dão pequenas flores brancas e frutas roxas comestíveis",
-      "price": "129",
-      "discount": "27",
-      "description": "Cacto arbustivo nativo do México, cresce até 5 metros de altura, com ramificações que lembram candelabros. Suas hastes chegam a 10 cm de diâmetro, com cinco costelas. Dão pequenas flores brancas e frutas roxas, comestíveis, que lembram o mirtilo.",
-      "category": "outdoor",
-      "highlight": true,
-      "imageURL": "https://cdn.leroymerlin.com.br/contents/tipos_de_cactos_b3f7_original.jpg"
+      "name": "Skinny Jeans",
+      "price": 80,
+      "category": "trousers",
+      "highlight": false,
+      "image": ["/skinny jeans.png"],
+      "inStock": true,
+      "colors": ["blue"],
+      "sizes": ["S", "X", "XL", "XXL"],
+      "offer": true
     },
     {
       "id": "fcfb",
-      "name": "Cleistocactus winteri",
-      "subtitle": "Possui caules cilíndricos verdes, cobertos de espinhos.",
-      "price": "110",
-      "discount": "35",
-      "description": "Conhecido popularmente como rabo de macaco, em alusão às suas hastes peludas, possui caules cilíndricos verdes, cobertos de espinhos. Produz flores vermelhas e possui ramos que podem chegar a 1 metro.",
-      "category": "terracy e balcony",
+      "name": "Snapback Cap",
+      "price": 30,
+      "category": "hat",
       "highlight": true,
-      "imageURL": "https://cdn.leroymerlin.com.br/contents/tipos_de_cactos_4db3_original.jpg"
+      "image": ["/hat3.png", "/hat4.png"],
+      "inStock": true,
+      "colors": ["yellow", "green"],
+      "sizes": ["One Size"],
+      "offer": false
     },
     {
       "id": "1459",
-      "name": "Melocactus salvadorensis",
-      "subtitle": "Conhecido como cabeça de fraude.",
-      "price": "150",
-      "discount": "45",
-      "description": "Melocactus salvadorensis é da família Cactaceae, conhecido popularmente como cabeça de frade. Apresentam caules suculentos, de formato globoso e costelas verticais onde se localizam as aréolas, cheias de espinhos e diferentes tamanhos.",
-      "category": "outdoor",
+      "name": "Snapback Cap",
+      "price": 30,
+      "category": "hat",
       "highlight": true,
-      "imageURL": "https://cdn.leroymerlin.com.br/contents/tipos_de_cactos_d1dc_original.jpg"
+      "image": ["/hat3.png", "/hat4.png"],
+      "inStock": true,
+      "colors": ["yellow", "green"],
+      "sizes": ["One Size"],
+      "offer": false
     },
     {
       "id": "3eaf",
-      "name": "Coleocephalocereus aureus",
-      "subtitle": "Seu caule pode atingir 50 cm de altura.",
-      "price": "85",
-      "discount": "20",
-      "description": "Originária do Nordeste de Minas Gerais, a Coleocephalocereus aureus pode também ser encontrada em muitos locais, como em afloramentos rochosos cristalinos cercados por vegetação de Caatinga.",
-      "category": "outdoor",
+      "name": "Snapback Cap",
+      "price": 30,
+      "category": "hat",
       "highlight": true,
-      "imageURL": "https://cdn.leroymerlin.com.br/contents/tipos_de_cactos_b212_original.jpg"
+      "image": ["/hat3.png", "/hat4.png"],
+      "inStock": true,
+      "colors": ["yellow", "green"],
+      "sizes": ["One Size"],
+      "offer": false
     }
   ]
 }

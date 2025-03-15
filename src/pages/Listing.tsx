@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TagName from "../components/TagName";
 import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Breadcrumb from "../components/Breadcrumb";
+import { IProduct } from "../interfaces/IProduct";
 
 function Listing() {
+  const [product, setProduct] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Falha na requisição");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setProduct(data.slice(0, 9));
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <>
       <div className="bg-white100">
@@ -100,15 +118,11 @@ function Listing() {
           </div>
 
           <div className="grid grid-cols-3 grid-rows-3 gap-x-6 gap-y-8 mt-4 ml-5.5">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {product.map((product) => (
+              <ProductCard
+                product={product}
+              />
+            ))}
           </div>
 
           <div className="flex justify-center mt-16">

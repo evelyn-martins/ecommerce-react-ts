@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import ProductCard from "../components/ProductCard";
+import { IProduct } from "../interfaces/IProduct";
 
 function Home() {
+
+  const [product, setProduct] = useState<IProduct[]>([])
+  const [productsOffer, setProductOffer] = useState<IProduct[]>([])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Falha na requisição");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const products = data.filter((product: IProduct) => product.highlight);
+        const productsOffer = data.filter((product: IProduct) => product.offer);
+        setProduct(products.slice(0, 4));
+        setProductOffer(productsOffer.slice(0, 4));
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <main>
       <section className="bg-white100 h-110 flex justify-between relative">
@@ -72,10 +95,9 @@ function Home() {
           <h2 className="text-black900 font-bold text-2xl">Best Selling</h2>
         </div>
         <div className="grid grid-cols-4 gap-5 mt-20 mb-42 mx-43 h-108">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {product.map((product) => (
+            <ProductCard product={product}/>
+          ))}
         </div>
       </section>
 
@@ -104,10 +126,9 @@ function Home() {
           </h2>
         </div>
         <div className="grid grid-cols-4 gap-5 mt-12 mb-48 mx-43 h-108">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {productsOffer.map((product) => (
+            <ProductCard product={product}/>
+          ))}
         </div>
       </section>
     </main>
