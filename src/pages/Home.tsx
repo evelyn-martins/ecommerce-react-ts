@@ -36,7 +36,7 @@ function Home() {
           <p className="text-sm text-black600 mb-12">
             Discover Our Newest Collection Today.
           </p>
-          <div>
+          <div className="w-46">
             <Button children={"View Collection"} arrow={true} />
           </div>
         </div>
@@ -110,7 +110,7 @@ function Home() {
             Step into a world of style and explore our diverse collection of
             clothing categories.
           </p>
-          <div>
+          <div className="w-44">
             <Button children={"Start Browsing"} arrow={true} />
           </div>
         </div>

@@ -8,5 +8,8 @@ export interface IProduct{
     inStock: boolean,
     colors: string[],
     sizes: string[],
-    offer: boolean
+    offer: boolean,
+    stars: number,
+    reviews: number,
+    quantityStock: number
 }

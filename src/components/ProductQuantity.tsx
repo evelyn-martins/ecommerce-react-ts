@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
+import { IProduct } from '../interfaces/IProduct';
 
-function ProductQuantity() {
+interface IProductQuantityProps{
+  product: IProduct
+}
+
+function ProductQuantity({product}: IProductQuantityProps) {
 
   const [count, setCount] = useState<number>(1);
 
   const handleAdd = () => {
-    if(count < 100){
+    if(count < product.quantityStock){
       setCount(count+1);
     }
   }

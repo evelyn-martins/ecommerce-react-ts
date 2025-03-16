@@ -1,13 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Breadcrumb({children}: {children: string}) {
+function Breadcrumb({children, title}: {children: string, title: string}) {
 
   const navigate = useNavigate();
 
   return (
-    <nav>
-      <ul className="flex gap-1 h-16 items-center px-40.5">
+    <nav className="flex flex-col gap-2">
+      <h2 className='text-black900 font-bold text-2xl px-40.5'>{title}</h2>
+      <ul className="flex gap-1 items-center px-40.5">
         <li className="text-sm font-medium text-black500 cursor-pointer" onClick={() => {navigate("/")}}>Ecommerce</li>
         <li>
           <img

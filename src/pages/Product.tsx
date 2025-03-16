@@ -3,10 +3,10 @@ import Breadcrumb from "../components/Breadcrumb";
 import ProductColors from "../components/ProductColors";
 import ProductSizes from "../components/ProductSizes";
 import ProductQuantity from "../components/ProductQuantity";
-import ButtonPrimary from "../components/ButtonPrimary";
 import ProductCard from "../components/ProductCard";
 import { useLocation } from "react-router-dom";
 import { IProduct } from "../interfaces/IProduct";
+import Button from "../components/Button";
 
 function Product() {
   const location = useLocation();
@@ -53,7 +53,7 @@ function Product() {
 
   return (
     <>
-      <Breadcrumb children="Black man t-shirt" />
+      <Breadcrumb children={product.name} title="" />
       <main>
         <section className="flex mx-43 h-143.5">
           <div className="flex flex-1/2 pt-7.5 bg-white100 flex-col justify-between">
@@ -100,7 +100,7 @@ function Product() {
                 <div className="flex gap-2 items-center bg-white100 rounded-full w-fit px-4 py-0.5">
                   <img src="/star.svg" alt="star" />
                   <p className="text-xs text-black500 font-medium">
-                    4.2 — 54 Reviews
+                    {product.stars} — {product.reviews} Reviews
                   </p>
                 </div>
                 <p className="text-black900 border border-black100 px-3 py-1 rounded-full text-xs font-medium w-fit">
@@ -117,22 +117,22 @@ function Product() {
                   <p className="text-xs font-medium text-black500 mb-2.5">
                     AVAILABLE COLORS
                   </p>
-                  <ProductColors />
+                  <ProductColors product={product}/>
                 </div>
                 <div>
                   <p className="text-xs font-medium text-black500 mb-2.5">
                     SELECT SIZE
                   </p>
-                  <ProductSizes />
+                  <ProductSizes product={product}/>
                 </div>
                 <div className="mt-8">
                   <p className="text-xs font-medium text-black500 mb-2.5">
                     QUANTITY
                   </p>
-                  <ProductQuantity />
+                  <ProductQuantity product={product}/>
                 </div>
-                <div className="mt-10">
-                  <ButtonPrimary children="Add to cart" />
+                <div className="mt-10 w-71">
+                  <Button children="Add to cart" arrow={false}/>
                 </div>
                 <p className="text-black500 font-medium text-xs mt-3">
                   — Free shipping on orders $100+
