@@ -3,10 +3,11 @@ import Breadcrumb from "../components/Breadcrumb";
 import Button from "../components/Button";
 
 function Checkout() {
+
   return (
     <div>
       <div className="h-40 flex items-center bg-white100">
-        <Breadcrumb children="Checkout" title="Checkout" />
+        <Breadcrumb children="Checkout" title={true} />
       </div>
 
       <div className="flex">

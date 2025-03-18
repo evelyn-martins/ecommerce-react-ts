@@ -1,50 +1,83 @@
-# React + TypeScript + Vite
+# Nome do projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="/image.png" alt="Page">
 
-Currently, two official plugins are available:
+> O [Nome do Projeto] é um e-commerce desenvolvido com React, TypeScript e Tailwind CSS. Ele oferece uma plataforma para a compra de roupas, calçados e acessórios com foco em uma experiência de usuário moderna e intuitiva.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Ajustes e melhorias
 
-## Expanding the ESLint configuration
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [x] Tarefa 1
+- [x] Tarefa 2
+- [x] Tarefa 3
+- [ ] Tarefa 4
+- [ ] Tarefa 5
 
-- Configure the top-level `parserOptions` property like this:
+## 💻 Pré-requisitos
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+- Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
+- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
+- Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+
+## 🚀 Instalando <nome_do_projeto>
+
+Para instalar o <nome_do_projeto>, siga estas etapas:
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/evelyn-martins/aws_react_dez24_d03.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navegue até o diretório do projeto:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd aws_react_dez24_d03
+```
+
+3. Instale as dependências:
+```
+npm install
+```
+
+## ☕ Usando <nome_do_projeto>
+
+Para usar <nome_do_projeto>, siga estas etapas:
+
+```
+<exemplo_de_uso>
+```
+
+Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Forneça uma referência de opções para pontos de bônus!
+
+## 📫 Contribuindo para <nome_do_projeto>
+
+Para contribuir com <nome_do_projeto>, siga estas etapas:
+
+1. Bifurque este repositório.
+2. Crie um branch: `git checkout -b <nome_branch>`.
+3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
+4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
+5. Crie a solicitação de pull.
+
+Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+## 🤝 Colaboradores
+
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/evelyn-martins" title="GitHub">
+        <img src="/evelyn.jpeg" width="100px;" alt="Evelyn Martins"/><br>
+        <sub>
+          <b>Evelyn Martins</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { IProduct } from "../interfaces/IProduct";
+import React from "react";
 
 interface IProductSizesProps {
-  product: IProduct;
+  sizes: string[];
+  selectedSize: string;
+  setSelectedSize: (size: string) => void;
 }
 
-function ProductSizes({ product }: IProductSizesProps) {
-  const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0]);
+function ProductSizes({ sizes, selectedSize, setSelectedSize }: IProductSizesProps) {
 
   return (
     /*<div className="flex gap-2">
@@ -28,7 +28,7 @@ function ProductSizes({ product }: IProductSizesProps) {
     </div>*/
 
     <div className="flex gap-2">
-      {product.sizes.map((size) => (
+      {sizes.map((size) => (
         <div
           className={`text-black900 text-xs font-medium h-10 w-10 border border-black100 ${
             size === selectedSize ? "border-black900" : "border-black100"

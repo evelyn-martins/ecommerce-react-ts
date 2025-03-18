@@ -6,7 +6,7 @@ function SignUp() {
   return (
     <div className="mb-40">
       <div className="bg-white100 mb-32 h-40 flex items-center">
-        <Breadcrumb children="Sign Up" title="Sign Up" />
+        <Breadcrumb children="Sign Up" title={true} />
       </div>
 
       <div className="flex flex-col mx-auto w-80">

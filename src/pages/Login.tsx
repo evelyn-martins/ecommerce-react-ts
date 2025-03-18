@@ -6,7 +6,7 @@ function Login() {
   return (
     <div className='mb-71.5'>
       <div className='bg-white100 mb-32 h-40 flex items-center'>
-        <Breadcrumb children='Login' title='Login'/>
+        <Breadcrumb children='Login' title={true} />
       </div>
 
       <div className='flex flex-col mx-auto w-80'>

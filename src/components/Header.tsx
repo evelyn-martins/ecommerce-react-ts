@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CartCounter from "./CartCounter";
 
 function Header() {
 
@@ -34,7 +35,7 @@ function Header() {
           </nav>
         </div>
         <div className="flex">
-          <img src="/cart.svg" alt="cart" className="mr-8" />
+          <CartCounter />
           <img src="/user.svg" alt="user" />
         </div>
       </div>

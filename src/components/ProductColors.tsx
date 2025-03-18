@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { IProduct } from "../interfaces/IProduct";
+import React from "react";
 
 interface IProductColorsProps {
-  product: IProduct;
+  colors: string[];
+  selectedColor: string;
+  setSelectedColor: (color: string) => void;
 }
 
-function ProductColors({ product }: IProductColorsProps) {
-  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
+function ProductColors({ colors, selectedColor, setSelectedColor }: IProductColorsProps) {
 
   return (
     /*<div className="flex gap-2.5 items-center">
@@ -27,7 +27,7 @@ function ProductColors({ product }: IProductColorsProps) {
     </div>*/
 
     <div className="flex gap-2.5 items-center">
-      {product.colors.map((color) => (
+      {colors.map((color) => (
         <div
           className={`w-8 h-8 border ${
             color === selectedColor ? "border-black900" : "border-transparent"

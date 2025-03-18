@@ -12,8 +12,7 @@
       "sizes": ["S", "M", "X", "XL", "XXL"],
       "offer": false,
       "stars": 4.2,
-      "reviews": 54,
-      "quantityStock": 100 
+      "reviews": 54 
     },
     {
       "id": "0fp9nany",
@@ -27,8 +26,7 @@
       "sizes": ["One Size"],
       "offer": false,
       "stars": 4.2,
-      "reviews": 46,
-      "quantityStock": 92 
+      "reviews": 46
     },
     {
       "id": "ugj4xk9m",
@@ -42,8 +40,7 @@
       "sizes": ["6", "6.5", "7", "8", "9"],
       "offer": true,
       "stars": 4.2,
-      "reviews": 50,
-      "quantityStock": 100 
+      "reviews": 50 
     },
     {
       "id": "5d86",
@@ -57,8 +54,7 @@
       "sizes": ["One Size"],
       "offer": false,
       "stars": 4.0,
-      "reviews": 32,
-      "quantityStock": 54 
+      "reviews": 32
     },
     {
       "id": "3f4f",
@@ -72,8 +68,7 @@
       "sizes": ["6", "7", "8", "9", "9.5"],
       "offer": true,
       "stars": 5.0,
-      "reviews": 85,
-      "quantityStock": 96 
+      "reviews": 85
     },
     {
       "id": "af08",
@@ -87,8 +82,7 @@
       "sizes": ["One Size"],
       "offer": true,
       "stars": 4.8,
-      "reviews": 72,
-      "quantityStock": 0 
+      "reviews": 72    
     },
     {
       "id": "c00b",
@@ -102,8 +96,7 @@
       "sizes": ["S", "X", "XL", "XXL"],
       "offer": true,
       "stars": 4.2,
-      "reviews": 42,
-      "quantityStock": 69 
+      "reviews": 42
     },
     {
       "id": "fcfb",
@@ -117,8 +110,7 @@
       "sizes": ["S", "X", "XL"],
       "offer": false,
       "stars": 3.8,
-      "reviews": 38,
-      "quantityStock": 56 
+      "reviews": 38
     },
     {
       "id": "1459",
@@ -132,8 +124,7 @@
       "sizes": ["6", "7", "8", "9"],
       "offer": false,
       "stars": 4.0,
-      "reviews": 48,
-      "quantityStock": 67 
+      "reviews": 48
     },
     {
       "id": "3eaf",
@@ -147,8 +138,7 @@
       "sizes": ["X", "XL", "XXL"],
       "offer": false,
       "stars": 4.2,
-      "reviews": 51,
-      "quantityStock": 53 
+      "reviews": 51
     }
   ]
 }

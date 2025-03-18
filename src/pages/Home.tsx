@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import ProductCard from "../components/ProductCard";
 import { IProduct } from "../interfaces/IProduct";
+import { useAppSelector } from "../store";
 
 function Home() {
 
   const [product, setProduct] = useState<IProduct[]>([])
   const [productsOffer, setProductOffer] = useState<IProduct[]>([])
+
+    const products = useAppSelector((state) => state.cart.items);
+    console.log(products)
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
@@ -96,7 +100,7 @@ function Home() {
         </div>
         <div className="grid grid-cols-4 gap-5 mt-20 mb-42 mx-43 h-108">
           {product.map((product) => (
-            <ProductCard product={product}/>
+            <ProductCard key={product.id} product={product}/>
           ))}
         </div>
       </section>
@@ -127,7 +131,7 @@ function Home() {
         </div>
         <div className="grid grid-cols-4 gap-5 mt-12 mb-48 mx-43 h-108">
           {productsOffer.map((product) => (
-            <ProductCard product={product}/>
+            <ProductCard key={product.id} product={product}/>
           ))}
         </div>
       </section>

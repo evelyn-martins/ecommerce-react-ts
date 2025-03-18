@@ -6,7 +6,7 @@ function AfterPayment() {
   return (
     <div>
       <div className='h-40 flex items-center bg-green100 mb-40'>
-        <Breadcrumb children='Successful Order' title='Successful Order' />
+        <Breadcrumb children='Successful Order' title={true} />
       </div>
       <div className='flex flex-col items-center mb-40'>
         <img src='/successful order.svg'alt='Successful order' />

@@ -4,16 +4,23 @@ import ProductColors from "../components/ProductColors";
 import ProductSizes from "../components/ProductSizes";
 import ProductQuantity from "../components/ProductQuantity";
 import ProductCard from "../components/ProductCard";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { IProduct } from "../interfaces/IProduct";
 import Button from "../components/Button";
+import { cartActions } from "../store/cartSlice";
+import { useAppDispatch, useAppSelector } from "../store";
 
 function Product() {
   const location = useLocation();
-  const {product} = location.state as { product: IProduct };
+  const { product } = location.state as { product: IProduct };
   const [currentImg, setCurrentImg] = useState<number>(0);
-  const {image, name, price, inStock} = product;
-  const [similarProducts, setSimilarProducts] = useState<IProduct[]>([])
+  const { image, name, price, inStock } = product;
+  const [similarProducts, setSimilarProducts] = useState<IProduct[]>([]);
+  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
+  const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0]);
+  const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handlePreviousImg = () => {
     setCurrentImg((prevImg) => {
@@ -36,24 +43,56 @@ function Product() {
   };
 
   useEffect(() => {
-      fetch("http://localhost:3000/products")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Falha na requisição");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          const productsFilter = data.filter((products: IProduct) => products.category === product.category)
-          setSimilarProducts(productsFilter.slice(0, 4));
-        })
-        .catch(console.error);
-    }, []);
+    fetch("http://localhost:3000/products")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Falha na requisição");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const productsFilter = data.filter(
+          (products: IProduct) => products.category === product.category
+        );
+        setSimilarProducts(productsFilter.slice(0, 4));
+      })
+      .catch(console.error);
+  }, [product.category]);
+
+  useEffect(() => {
+    setSelectedColor(product.colors[0]);
+    setSelectedSize(product.sizes[0]);
+    setSelectedQuantity(1);
+    window.scrollTo(0, 0);
+  }, [product]);
+
+  const handleAddToCart = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: Math.random().toString(36).substring(2),
+        productId: product.id!,
+        name: product.name,
+        image: product.image[0],
+        quantity: selectedQuantity,
+        price: product.price,
+        color: selectedColor,
+        size: selectedSize,
+      })
+    );
+    navigate("/cart");
+    console.log("adicionado ao carrinho");
+  };
+
+  const products = useAppSelector((state) => state.cart.items);
+
+  console.log(products);
 
   return (
     <>
-      <Breadcrumb children={product.name} title="" />
+      <div className="h-15 flex items-center">
+        <Breadcrumb children={product.name} title={false} />
+      </div>
       <main>
         <section className="flex mx-43 h-143.5">
           <div className="flex flex-1/2 pt-7.5 bg-white100 flex-col justify-between">
@@ -90,9 +129,7 @@ function Product() {
           </div>
           <div className="flex-1/2 pl-30">
             <div className="flex justify-between items-center mt-3">
-              <h2 className="text-2xl font-bold text-black900">
-                {name}
-              </h2>
+              <h2 className="text-2xl font-bold text-black900">{name}</h2>
               <img src="/share.svg" alt="Share" className="cursor-pointer" />
             </div>
             <div className="mt-3">
@@ -117,22 +154,37 @@ function Product() {
                   <p className="text-xs font-medium text-black500 mb-2.5">
                     AVAILABLE COLORS
                   </p>
-                  <ProductColors product={product}/>
+                  <ProductColors
+                    colors={product.colors}
+                    selectedColor={selectedColor}
+                    setSelectedColor={setSelectedColor}
+                  />
                 </div>
                 <div>
                   <p className="text-xs font-medium text-black500 mb-2.5">
                     SELECT SIZE
                   </p>
-                  <ProductSizes product={product}/>
+                  <ProductSizes
+                    sizes={product.sizes}
+                    selectedSize={selectedSize}
+                    setSelectedSize={setSelectedSize}
+                  />
                 </div>
                 <div className="mt-8">
                   <p className="text-xs font-medium text-black500 mb-2.5">
                     QUANTITY
                   </p>
-                  <ProductQuantity product={product}/>
+                  <ProductQuantity
+                    selectedQuantity={selectedQuantity}
+                    setSelectedQuantity={setSelectedQuantity}
+                  />
                 </div>
                 <div className="mt-10 w-71">
-                  <Button children="Add to cart" arrow={false}/>
+                  <Button
+                    children="Add to cart"
+                    arrow={false}
+                    onClick={handleAddToCart}
+                  />
                 </div>
                 <p className="text-black500 font-medium text-xs mt-3">
                   — Free shipping on orders $100+
@@ -174,7 +226,7 @@ function Product() {
           </div>
           <div className="grid grid-cols-4">
             {similarProducts.map((product) => (
-              <ProductCard product={product}/>
+              <ProductCard product={product} />
             ))}
           </div>
         </section>

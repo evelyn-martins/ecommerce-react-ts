@@ -25,8 +25,8 @@ function Listing() {
 
   return (
     <>
-      <div className="bg-white100">
-        <Breadcrumb children="Search" />
+      <div className="bg-white100 h-16 flex items-center">
+        <Breadcrumb children="Search" title={false} />
       </div>
       <main className="flex mb-32">
         <aside className="border border-black100 rounded-md pl-4 pt-6 pr-3 pb-8 w-60 mt-8 ml-43 h-fit">
@@ -120,7 +120,7 @@ function Listing() {
           <div className="grid grid-cols-3 grid-rows-3 gap-x-6 gap-y-8 mt-4 ml-5.5">
             {product.map((product) => (
               <ProductCard
-                product={product}
+                key={product.id} product={product}
               />
             ))}
           </div>
