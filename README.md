@@ -24,14 +24,17 @@ Este projeto foi desenvolvido utilizando as seguintes linguagens e ferramentas:
 ## ⚙️ Funcionalidades
 
 1. **Página de produtos**
+
 A página inicial exibe todos os produtos disponíveis para compra. Cada produto mostra informações como nome, preço e imagem.
 
 2. **Filtros de produtos**
+
 O usuário pode filtrar os produtos com base em duas opções:
 * Categoria: Os produtos podem ser filtrados por categoria.
 * Preço: O usuário pode filtrar os produtos dentro de uma faixa de preço específica, ajustando o valor máximo.
 
 3. **Barra de pesquisa**
+
 Há uma barra de pesquisa onde o usuário pode procurar um produto pelo nome. Isso facilita a busca por itens específicos no site.
 
 4. **Carrinho de compras**
@@ -75,8 +78,6 @@ json-server --watch db.json
 ```
 
 ## 🤝 Colaboradores
-
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <table>
   <tr>
