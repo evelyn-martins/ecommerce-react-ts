@@ -10,12 +10,26 @@ interface zipCodeInfo {
   street: string;
 }
 
+interface userInfo {
+  country: string;
+  email: string;
+  name: string;
+}
+
 function Checkout() {
   const [zipCode, setZipCode] = useState<string>("");
   const [zipCodeInfo, setZipCodeInfo] = useState<zipCodeInfo | null>(null);
+  const [user, setUser] = useState<userInfo>({
+    country: "",
+    email: "",
+    name: ""
+  })
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [success, setSuccess] = useState<boolean>(false);
 
   const subTotal = useAppSelector((state) => state.cart.subTotal);
   const tax = useAppSelector((state) => state.cart.tax);
+  const items = useAppSelector((state) => state.cart.items)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +45,72 @@ function Checkout() {
       });
   }, [zipCode]);
 
-  console.log("cep", zipCodeInfo);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value
+  }))
+  }
+
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        navigate("/after-payment");
+      }, 3000);
+  
+      return () => clearTimeout(timer);
+    }
+  }, [success, navigate]);
+
+  const handleSubmit = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
+
+    const newErrors: { [key: string]: string } = {};
+
+    if(items.length === 0){
+      newErrors.items = "The cart is empty.";
+    }
+
+    if(user.email === ""){
+      newErrors.email = "Email required."
+    }else if(!emailRegex.test(user.email)){
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    if(user.name === ""){
+      newErrors.name = "Name required."
+    }else if(!nameRegex.test(user.name)){
+      newErrors.email = "Name should only contain letters and spaces.";
+    }
+
+    if(user.country === ""){
+      newErrors.country = "Country required."
+    }
+
+    if(zipCode === ""){
+      newErrors.zipCode = "Zip Code required."
+    }
+
+    if(!zipCodeInfo?.city){
+      newErrors.city = "City required."
+    }
+
+    if(!zipCodeInfo?.state){
+      newErrors.state = "State required."
+    }
+
+    if(!zipCodeInfo?.street){
+      newErrors.street = "Street Address required."
+    }
+
+    setErrors(newErrors);
+
+    if(Object.keys(newErrors).length === 0){
+      setSuccess(true);
+    }
+  }
 
   return (
     <div>
@@ -53,6 +132,7 @@ function Checkout() {
                 value={zipCode}
                 onChange={(e) => setZipCode(e.target.value)}
               />
+            {errors.zipCode && <span className="text-red-500 text-xs mt-2">{errors.zipCode}</span>}
             </div>
             <div className="flex flex-col w-65">
               <label className="text-black600 font-medium text-sm">
@@ -60,8 +140,12 @@ function Checkout() {
               </label>
               <input
                 type="text"
+                name="country"
                 className="border border-black100 rounded-md py-2.5 px-2"
+                value={user.country}
+                onChange={handleChange}
               />
+              {errors.country && <span className="text-red-500 text-xs mt-2">{errors.country}</span>}
             </div>
           </div>
           <div className="flex gap-4 mb-3.5">
@@ -72,6 +156,7 @@ function Checkout() {
                 className="border border-black100 rounded-md py-2.5 px-2"
                 value={zipCodeInfo?.city}
               />
+            {errors.city && <span className="text-red-500 text-xs mt-2">{errors.city}</span>}
             </div>
             <div className="flex flex-col w-65">
               <label className="text-black600 font-medium text-sm">State</label>
@@ -80,6 +165,7 @@ function Checkout() {
                 className="border border-black100 rounded-md py-2.5 px-2"
                 value={zipCodeInfo?.state}
               />
+            {errors.state && <span className="text-red-500 text-xs mt-2">{errors.state}</span>}
             </div>
           </div>
           <div className="flex flex-col w-134">
@@ -91,14 +177,19 @@ function Checkout() {
               className="border border-black100 rounded-md py-2.5 px-2"
               value={zipCodeInfo?.street}
             />
+            {errors.street && <span className="text-red-500 text-xs mt-2">{errors.street}</span>}
           </div>
           <div className="flex gap-4 mt-12.5">
             <div className="flex flex-col w-65">
               <label className="text-black600 font-medium text-sm">Email</label>
               <input
                 type="text"
+                name="email"
                 className="border border-black100 rounded-md py-2.5 px-2"
+                value={user.email}
+                onChange={handleChange}
               />
+              {errors.email && <span className="text-red-500 text-xs mt-2">{errors.email}</span>}
             </div>
             <div className="flex flex-col w-65">
               <label className="text-black600 font-medium text-sm">
@@ -106,8 +197,12 @@ function Checkout() {
               </label>
               <input
                 type="text"
+                name="name"
                 className="border border-black100 rounded-md py-2.5 px-2"
+                value={user.name}
+                onChange={handleChange}
               />
+              {errors.name && <span className="text-red-500 text-xs mt-2">{errors.name}</span>}
             </div>
           </div>
         </form>
@@ -139,8 +234,10 @@ function Checkout() {
               <p className="text-black900 font-medium">$ {(subTotal+tax).toFixed(2)}</p>
             </div>
             <div>
-              <Button children="Place Order" arrow={false} />
+              <Button children="Place Order" arrow={false} onClick={handleSubmit} />
             </div>
+            {success && <span className="text-green-500 text-sm mt-2 flex justify-center">Your purchase has been successfully completed.</span>}
+            {errors.items && <span className="text-red-500 text-sm mt-2 flex justify-center">{errors.items}</span>}
           </div>
         </div>
       </div>

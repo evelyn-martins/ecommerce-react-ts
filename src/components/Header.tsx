@@ -28,7 +28,7 @@ function Header() {
               <li className="mr-8 text-sm font-medium text-black500 hover:text-black900 transition-all cursor-pointer" onClick={() => {navigate("/listing")}}>
                   Shop
               </li>
-              <li className="text-sm font-medium text-black500 hover:text-black900 transition-all cursor-pointer">
+              <li className="text-sm font-medium text-black500 hover:text-black900 transition-all cursor-pointer" onClick={() => navigate("*")}>
                   About
               </li>
             </ul>
