@@ -1,6 +1,6 @@
 # Nome do projeto
 
-<img src="/image.png" alt="Page">
+<img src="public/image.png" alt="Page">
 
 > O [Nome do Projeto] é um e-commerce desenvolvido com React, TypeScript e Tailwind CSS. Ele oferece uma plataforma para a compra de roupas, calçados e acessórios com foco em uma experiência de usuário moderna e intuitiva.
 
@@ -73,7 +73,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/evelyn-martins" title="GitHub">
-        <img src="/evelyn.jpeg" width="100px;" alt="Evelyn Martins"/><br>
+        <img src="public/evelyn.jpeg" width="100px;" alt="Evelyn Martins"/><br>
         <sub>
           <b>Evelyn Martins</b>
         </sub>

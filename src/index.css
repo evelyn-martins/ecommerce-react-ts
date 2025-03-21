@@ -27,3 +27,26 @@
 :root{
     font-family: "Inter", sans-serif;
 }
+
+input[type="range"]{
+    appearance: none;
+    height: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(
+    to right,
+    var(--color-black900) 0%,
+    var(--color-black900) var(--range-value, 0%),
+    var(--color-black100) var(--range-value, 0%),
+    var(--color-black100) 100%
+  );
+}
+
+input[type="range"]::-webkit-slider-thumb{
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    background-color: #0E1422;
+    border-radius: 100%;
+    border: 2px solid white;
+}

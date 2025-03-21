@@ -16,7 +16,7 @@ function Header() {
             </div>
             <div>
               <h1 className="font-extrabold text-xl font-manrope text-black900 cursor-pointer" onClick={() => {navigate("/")}}>
-                Ecommerce
+                UrbanVibe
               </h1>
             </div>
           </div>
@@ -36,7 +36,7 @@ function Header() {
         </div>
         <div className="flex">
           <CartCounter />
-          <img src="/user.svg" alt="user" />
+          <img src="/user.svg" alt="user" className="cursor-pointer hover:scale-105" onClick={() => navigate("/profile")} />
         </div>
       </div>
     </header>

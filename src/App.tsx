@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Promotion from "./components/Promotion";
@@ -10,10 +10,12 @@ import SignUp from "./pages/SignUp";
 import AfterPayment from "./pages/AfterPayment";
 import Checkout from "./pages/Checkout";
 import Cart from "./pages/Cart";
+import Page404 from "./pages/Page404";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Promotion />
       <Header />
       <Routes>
@@ -25,9 +27,11 @@ function App() {
         <Route path="successful-order" element={<AfterPayment />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="*" element={<Page404 />} />
+        <Route path="profile" element={<Profile />} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

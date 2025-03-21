@@ -1,7 +1,11 @@
 import React from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+
+  const navigate = useNavigate();
+
   return (
     <footer>
       <div className="flex justify-between bg-white100">
@@ -30,7 +34,7 @@ function Footer() {
             <div className="border border-black100 rounded-md h-11 w-11 flex justify-center items-center">
               <img src="/logo black.svg" alt="logo" />
             </div>
-            <h2 className="font-extrabold text-xl font-manrope">Ecommerce</h2>
+            <h2 className="font-extrabold text-xl font-manrope">UrbanVibe</h2>
           </div>
           <p className="text-sm text-black500">
             DevCut is a YouTube channel for practical project-based learning.
@@ -58,66 +62,57 @@ function Footer() {
         <div className="grid grid-cols-3 gap-18 mt-18.5">
           <div className="flex flex-col gap-4">
             <h2 className="text-black300 text-sm font-medium mb-10">SUPPORT</h2>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("*")}}>
               FAQ
-            </a>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            </p>
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("*")}}>
               Terms of use
-            </a>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            </p>
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("*")}}>
               Privacy Policy
-            </a>
+            </p>
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="text-black300 text-sm font-medium mb-10">COMPANY</h2>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("*")}}>
               About us
-            </a>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            </p>
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("*")}}>
               Contact
-            </a>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            </p>
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("*")}}>
               Careers
-            </a>
+            </p>
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="text-black300 text-sm font-medium mb-10">SHOP</h2>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("/profile")}}>
               My Account
-            </a>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            </p>
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("/checkout")}}>
               Checkout
-            </a>
-            <a
-              href="#"
-              className="text-black500 text-sm font-medium hover:text-black900"
-            >
+            </p>
+            <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
+              window.scroll(0, 0);
+              navigate("/cart")}}>
               Cart
-            </a>
+            </p>
           </div>
         </div>
         <div className="mt-19 mr-42 ml-39">

@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import ProductCard from "../components/ProductCard";
 import { IProduct } from "../interfaces/IProduct";
-import { useAppSelector } from "../store";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
 
-  const [product, setProduct] = useState<IProduct[]>([])
-  const [productsOffer, setProductOffer] = useState<IProduct[]>([])
-
-    const products = useAppSelector((state) => state.cart.items);
-    console.log(products)
+  const [product, setProduct] = useState<IProduct[]>([]);
+  const [productsOffer, setProductOffer] = useState<IProduct[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
@@ -21,7 +19,6 @@ function Home() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         const products = data.filter((product: IProduct) => product.highlight);
         const productsOffer = data.filter((product: IProduct) => product.offer);
         setProduct(products.slice(0, 4));
@@ -41,7 +38,7 @@ function Home() {
             Discover Our Newest Collection Today.
           </p>
           <div className="w-46">
-            <Button children={"View Collection"} arrow={true} />
+            <Button children={"View Collection"} arrow={true} onClick={() => navigate("/listing")} />
           </div>
         </div>
         <div>
@@ -115,7 +112,9 @@ function Home() {
             clothing categories.
           </p>
           <div className="w-44">
-            <Button children={"Start Browsing"} arrow={true} />
+            <Button children={"Start Browsing"} arrow={true} onClick={() => {
+              window.scroll(0, 0);
+              navigate("/listing")}} />
           </div>
         </div>
         <div className="mr-53">

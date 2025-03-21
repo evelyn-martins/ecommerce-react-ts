@@ -10,13 +10,9 @@ function Cart() {
   const navigate = useNavigate();
 
   const products = useAppSelector((state) => state.cart.items);
-  console.log("produtos", products)
-  const count = useAppSelector((state) => state.cart.count);
-  console.log("quantidade", count);
   const subTotal = useAppSelector((state) => state.cart.subTotal);
-  console.log("subtotal", subTotal);
   const tax = useAppSelector((state) => state.cart.tax);
-  console.log("tax", tax);
+
 
   return (
     <div>
@@ -58,10 +54,12 @@ function Cart() {
               <p className="text-black900 font-medium">$ {subTotal <= 0 ? "0.00" : (subTotal + tax).toFixed(2)}</p>
             </div>
             <div>
-              <Button children="Checkout" arrow={false} />
+              <Button children="Checkout" arrow={false} onClick={() => navigate("/checkout")} />
             </div>
             <div className="flex justify-center mt-8 mb-10">
-              <p className="text-black900 font-medium text-xs underline hover:text-black500 cursor-pointer transition-all" onClick={() => {navigate("/listing")}}>
+              <p className="text-black900 font-medium text-xs underline hover:text-black500 cursor-pointer transition-all" onClick={() => {
+                window.scroll(0, 0);
+                navigate("/listing")}}>
                 Continue Shopping
               </p>
             </div>

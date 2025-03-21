@@ -81,7 +81,6 @@ function Product() {
       })
     );
     navigate("/cart");
-    console.log("adicionado ao carrinho");
   };
 
   const products = useAppSelector((state) => state.cart.items);
@@ -145,7 +144,7 @@ function Product() {
                 </p>
               </div>
               <div className="mt-6">
-                <p className="text-black900 font-semibold text-lg">${price}</p>
+                <p className="text-black900 font-semibold text-lg">${price.toFixed(2)}</p>
               </div>
             </div>
             {product.inStock && (

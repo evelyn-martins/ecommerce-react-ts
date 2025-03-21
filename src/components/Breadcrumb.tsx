@@ -16,7 +16,7 @@ function Breadcrumb({ children, title }: { children: string; title: boolean }) {
             navigate("/");
           }}
         >
-          Ecommerce
+          UrbanVibe
         </li>
         <li>
           <img

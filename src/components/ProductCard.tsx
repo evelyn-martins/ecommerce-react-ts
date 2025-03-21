@@ -30,7 +30,7 @@ function ProductCard({product}: IProductCardProps) {
           <p className="text-black900 border border-black100 px-3 py-1 rounded-full text-xs font-medium w-fit">
             {product.inStock ? "IN STOCK" : "NO STOCK"}
           </p>
-          <p className="text-sm text-black600">${product.price}</p>
+          <p className="text-sm text-black600">${product.price.toFixed(2)}</p>
         </div>
       </div>
     </div>
