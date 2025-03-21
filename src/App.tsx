@@ -12,6 +12,7 @@ import Checkout from "./pages/Checkout";
 import Cart from "./pages/Cart";
 import Page404 from "./pages/Page404";
 import Profile from "./pages/Profile";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="*" element={<Page404 />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="about" element={<About />} />
       </Routes>
       <Footer />
     </BrowserRouter>

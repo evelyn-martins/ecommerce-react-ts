@@ -82,7 +82,7 @@ function Footer() {
             <h2 className="text-black300 text-sm font-medium mb-10">COMPANY</h2>
             <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {
               window.scroll(0, 0);
-              navigate("*")}}>
+              navigate("/about")}}>
               About us
             </p>
             <p className="text-black500 text-sm font-medium hover:text-black900 cursor-pointer" onClick={() => {

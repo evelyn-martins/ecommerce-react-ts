@@ -76,6 +76,7 @@ function Listing() {
     if(count < Math.ceil(products.length/9)){
       setCount( count + 1);
       setStartSlice(startSlice + 9);
+      window.scroll(0, 0);
     }
   }
 
@@ -83,6 +84,7 @@ function Listing() {
     if(count > 1){
       setCount(count - 1);
       setStartSlice(startSlice - 9);
+      window.scroll(0, 0);
     }
   }
 
