@@ -1,6 +1,6 @@
 # UrbanVibe
 
-<img src="public/image.png" alt="Page">
+<img src="public/Page.png" alt="Page">
 
 > A UrbanVibe é um e-commerce fictício desenvolvido com React, TypeScript e Tailwind CSS. Ele oferece uma plataforma para a compra de roupas, calçados e acessórios com foco em uma experiência de usuário moderna e intuitiva.
 
